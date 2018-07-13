@@ -3,7 +3,8 @@
 		<div class="add-item vux-1px-b">
 			<div>*</div>
 			<div>{{name}}</div>
-			<div @click="showPicker" class="active" style="padding-left:17px;">{{province}}-{{city}}-{{district}}</div>
+			<div @click="showPicker" class="active" style="padding-left:17px;" v-if="province">{{province}}-{{city}}-{{district}}</div>
+			<div @click="showPicker" class="active" style="padding-left:17px;" v-else>请选择地址</div>
 			<div @click="show" style="display: flex;align-items: center;justify-content: flex-end;"> <img src="../assets/icons/selected.png" style="width: 0.15rem;" /></div>
 		</div>
 		<div class="add-item vux-1px-b" v-if='showstreet'>
@@ -11,16 +12,15 @@
 			<div>详细地址</div>
 			<div><input type="text" v-model="street" placeholder="请输入详细地址" /></div>
 		</div>
-		<div class="bm-view-box">
+		<!-- <div class="bm-view-box">
 			<div>
 				<baidu-map class="bm-view" @ready='ready' :center='center' :zoom='zoom'>
 
-					<!--<bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>-->
 				</baidu-map>
 				<img src="http://file.skylinuav.com/r/mapPoint.png?imageView2/0/w/35/h/45" alt="" class="bm-img"  />
 			</div>
 
-		</div>
+		</div> -->
 		<div>
 			<x-address style="display:none;" title="title" v-model="value" :list="addressData" placeholder="请选择地址" :show.sync="showAddress"></x-address>
 		</div>
@@ -107,14 +107,24 @@
 		watch: {
 			value(e, a) {
 				let name = value2name(e, ChinaAddressV4Data)
-				this.map.setCenter(name)
+				// this.map.setCenter(name)
 				this.province = name.split(' ')[0]
 				this.city = name.split(' ')[1]
 				this.district = name.split(' ')[2]
 				this.street = ''
-				setTimeout(() => {
-					this.getCenter()
-				}, 500)
+				// setTimeout(() => {
+				// 	this.getCenter()
+				// }, 500)
+				let _this=this
+					_this.obj.province = this.province
+					_this.obj.city = this.city
+					_this.obj.district = this.district
+					_this.obj.street = this.street
+					this.obj.center = {
+					lng: 1,
+					lat: 1
+				}
+					_this.resData = JSON.stringify(_this.obj)
 			},
 			resData(e) {
 				//				console.log(e)

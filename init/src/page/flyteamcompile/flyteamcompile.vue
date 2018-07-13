@@ -42,7 +42,7 @@
 				<div class="t-info">简介</div>
 				<x-textarea :max="500" placeholder="请填写备注信息" v-model="flyteam.info"></x-textarea>
 			</div>
-			<div class="bx pic">
+			<!-- <div class="bx pic">
 				<div class="add-item vux-1px-b">
 					<div></div>
 					<div>图片</div>
@@ -58,14 +58,14 @@
 							<div class="upImg">
 
 								<img_up @res='res' type='banner' :name='index'></img_up>
-								<!--<i class="weui-loading" v-if="!n.imgres"></i>-->
+			
 								<img src="../../../assets/images/back.png" class="back" v-if="n.imgres=='_'" />
 								<img :src="n.imgres" class="up" v-else/>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 		<div class="button">
@@ -77,7 +77,7 @@
 
 <script>
 	import Bmap from '@/components/Bmap'
-	import img_up from '@/components/Img_up'
+	// import img_up from '@/components/Img_up'
 	import { XTextarea} from 'vux'
 	import wheader from '@/components/Header'
 
@@ -87,7 +87,7 @@
 			wheader,
 			Bmap,
 			XTextarea,
-			img_up,
+			// img_up,
 
 		},
 		beforeDestroy(){
@@ -189,6 +189,7 @@
 
 					if(res.body.ret == 200) {
 						mui.toast('飞防队信息修改成功')
+						update()
 						mui.back()
 					} else {
 						mui.toast(resMsg(res.body.msg))

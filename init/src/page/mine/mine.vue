@@ -16,21 +16,20 @@
 						<div style="display: flex;justify-content: flex-end;align-items: center;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;" /></div>
 					</div>
 				</div>
-				<div class="my-items" @click="push('./rephone.html')">
+				<!-- <div class="my-items" @click="push('./rephone.html')">
 					<div class="vux-1px-b c">
 						<div>修改手机号</div>
 						<div style="display: flex;justify-content: flex-end;align-items: center;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;" /></div>
 					</div>
-				</div>
-				<div class="my-items" @click="push('./certification.html',rel)" v-if="!farmers">
+				</div> -->
+				<!-- <div class="my-items" @click="push('./certification.html',rel)" v-if="!farmers">
 					<div class="vux-1px-b c">
 						<div>实名认证</div>
 						<div>
 							<span style="color: #ED6262;">{{rel | relStatus}}</span>
-							<!--<span>></span>-->
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="my-items" @click="push('./about.html')">
 					<div class="c">
 						<div>关于</div>

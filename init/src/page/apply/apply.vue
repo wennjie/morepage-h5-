@@ -5,7 +5,7 @@
 			<alert v-model="show2" title="报名成功" content="你已成功报名，请耐心等待" @on-hide='onHide'></alert>
 		</div>
 		<div class="scroll content textarea mui-content">
-			<x-textarea :max="500" placeholder="请填写您的报名附言" v-model='info'></x-textarea>
+			<x-textarea  placeholder="请填写您的报名附言" v-model='info'></x-textarea>
 		</div>
 
 		<div class="button">
@@ -48,6 +48,7 @@
 		},
 		methods: {
 			onHide() {
+				update()
 				mui.back()
 			},
 			//报名

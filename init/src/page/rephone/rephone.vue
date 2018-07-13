@@ -99,6 +99,7 @@ export default {
             }
 
             mui.toast("手机号码修改成功");
+            update()
             mui.back()
           },
           err => {

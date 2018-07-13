@@ -63,6 +63,7 @@
 
 						if(res.body.ret == 200) {
 							mui.toast('手机号码绑定成功')
+							update()
 							mui.back()
 
 						} else {

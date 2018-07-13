@@ -9,6 +9,8 @@ function router(path, data) {
 }
 
 function openWindow(path) {
+  var wv = plus.webview.currentWebview();
+  localStorage.setItem('wvId',wv.id)
   mui.openWindow({
     url: path,
     id: path,
@@ -39,12 +41,12 @@ function openWindow(path) {
     }
   })
 }
-
+var entry = 'flyteam'//farmers
 window.resMsg = function (e) {
   return e.split('：')[1]
 }
-window.HTTPS = 'https://devel.skylinuav.com/'
-window.HTTPS = 'http://www.onemoretime.ml:8099/'
+// window.HTTPS = 'https://devel.skylinuav.com/'
+// window.HTTPS = 'http://www.onemoretime.ml:8099/'
 window.HTTPS = 'http://118.24.101.215/'
 
 
@@ -64,7 +66,7 @@ function filterImg(e) {
       return 'suidao'
       break;
     case '柑橘':
-      return 'guanju'
+      return 'ganju'
       break;
     case '葡萄':
       return 'putao'
@@ -79,4 +81,19 @@ function filterImg(e) {
       return 'default'
       break;
   }
+}
+
+
+function update(){
+  var wvId =localStorage.getItem('wvId')
+  var indexId = localStorage.getItem('indexId')
+  mui.fire(plus.webview.getWebviewById(wvId),'update',{})
+  mui.fire(plus.webview.getWebviewById(indexId),'update',{})
+}
+function addUpdate(callback){
+  mui.plusReady(function() {
+    window.addEventListener('update',function(event){
+      callback()
+  });
+  })
 }

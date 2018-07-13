@@ -164,14 +164,12 @@
 				})
 			},
 			addOrder() {
-				console.log(JSON.parse(localStorage.getItem('user')))
+				
 				let add = this.add
-
 				if(add.name == '') {
 					mui.toast('请输入联系人姓名')
 					return
 				}
-
 				if(add.telphone == '') {
 					mui.toast('请输入联系人手机号')
 					return
@@ -225,7 +223,7 @@
 					return
 				}
 				if(this.center.longitude == 0) {
-					tmui.toast('定位数据有误，请刷新后重试')
+					mui.toast('定位数据有误，请刷新后重试')
 					return
 				}
 
@@ -241,6 +239,7 @@
 					if(res.body.ret == 200) {
 						this.add.name=''
 						mui.toast('提交成功')
+						update()
 						mui.back()
 						
 					} else {
@@ -394,5 +393,16 @@
 			/* Internet Explorer 10+ */
 			color: #D1D1D6;
 		}
+		
 	}
+	.mui-content{
+		padding-bottom: 0.6rem;
+	}
+	.button{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 0.5rem !important;
+		}
 </style>

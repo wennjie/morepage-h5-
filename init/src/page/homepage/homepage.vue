@@ -9,9 +9,14 @@
 </template>
 
 <script>
+mui.plusReady(function() {
+let wv = plus.webview.currentWebview();
+localStorage.setItem('indexId',wv.id)
+})
+
 import items from "@/components/Items";
 import { LoadMore } from "vux";
-import wheader from '../../components/Header.vue'
+import wheader from "../../components/Header.vue";
 export default {
   data() {
     return {
@@ -46,7 +51,9 @@ export default {
   beforeMount() {},
   // Dom渲染完成
   mounted() {
-    console.log(localStorage.getItem("user"));
+    addUpdate(() => {
+      this.getDemandList(this.type, 1, ()=>{});
+    });
   },
   // 更新视图 在beforeUpdate触发时，视图已经更新完成
   beforeUpdate() {},

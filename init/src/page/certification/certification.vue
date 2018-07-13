@@ -124,6 +124,7 @@
 		},
 		methods: {
 			onHide() {
+				update()
 				mui.back()
 			},
 			res(e) {

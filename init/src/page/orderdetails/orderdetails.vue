@@ -43,9 +43,10 @@
 					</span>
 					<span>植保地址</span>
 				</div>
-				<div class="link" @click="push('./bmapshow.html')">
+				<div class="link">
+           <!-- @click="push('./bmapshow.html')" -->
 					<span>{{item.add.province}}{{item.add.city}}{{item.add.district}}{{item.add.street}}</span>
-					<span class="icons" style="display: flex;align-items: center;justify-content: flex-end;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;"/></span>
+					<!-- <span class="icons" style="display: flex;align-items: center;justify-content: flex-end;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;"/></span> -->
 				</div>
 			</div>
 
@@ -108,7 +109,7 @@
 </template>
 
 <script>
-	import wheader from '@/components/Header'
+import wheader from "@/components/Header";
 import {
   AlertModule,
   Alert,
@@ -124,7 +125,13 @@ export default {
     Alert,
     XTextarea
   },
-  mounted() {},
+  mounted() {
+    addUpdate(() => {
+      let item = JSON.parse(localStorage.getItem("itemsList"));
+
+      this.SearchDemandOne(item._id);
+    });
+  },
   beforeCreate() {},
   created() {
     let item = JSON.parse(localStorage.getItem("itemsList"));
@@ -185,7 +192,7 @@ export default {
       router("./flyteamdetails.html");
     },
     filterImg(e) {
-      return filterImg(e)
+      return filterImg(e);
     },
     gobaoming(e) {
       if (this.rel != 1) {
@@ -243,9 +250,9 @@ export default {
         .then(
           res => {
             if (res.body.ret == 200) {
-        
               mui.toast("订单关闭成功");
-              mui.back()
+              update();
+              mui.back();
             } else {
               mui.toast(resMsg(res.body.msg));
             }
@@ -260,7 +267,6 @@ export default {
 </script>
 
 <style lang='less'>
-
 .icon-box {
   width: 0.7rem;
   height: 0.7rem;

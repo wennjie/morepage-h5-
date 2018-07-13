@@ -2,8 +2,8 @@
     <header class="mui-bar mui-bar-nav">
         <h1 id="title" class="mui-title">{{title}}</h1>
         <div v-if="!hide">
-            <a class="mui-icon mui-icon-plusempty mui-pull-left" v-if="!back" @click="push('./addorder.html')"></a>
-            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" v-else></a>
+            <a class="mui-icon mui-icon-plusempty mui-pull-left" v-if="inType=='farmers'&&!back" @click="push('./addorder.html')"></a>
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" v-if="back"></a>
             <div class="mui-pull-right" v-if="!back"  @click="push('./orderhistory.html')">历史</div>
         </div>
     </header>
@@ -23,6 +23,16 @@ export default {
       type: Boolean,
       default: false
     },
+  },
+  created() {
+    this.inType=localStorage.getItem("inType") 
+  },
+  data(){
+    // == "farmers"
+    return {
+       user:'',
+       inType:'flyteam'
+    }
   },
   methods: {
     push(e) {
