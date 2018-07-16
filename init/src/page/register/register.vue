@@ -22,7 +22,7 @@
 				<div class="add-item vux-1px-b">
 					<div>*</div>
 					<div>密码</div>
-					<div><input type="password" placeholder="请输入密码" name="" id="" value="" v-model="password" /></div>
+					<div><input type="password" placeholder="请输入密码" name=""  value="" v-model="password" /></div>
 					
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 				<div class="add-item ">
 					<div>*</div>
 					<div>确认密码</div>
-					<div><input type="password" placeholder="请再次输入密码" name="" id="" value="" v-model="rpassword" /></div>
+					<div><input type="password" placeholder="请再次输入密码" name=""  value="" v-model="rpassword" /></div>
 					
 				</div>
 			</div>
