@@ -60,12 +60,15 @@ router.post('/', async (req, res, next) => {
   } = req.body
   if(telphone===''){
     res.send({msg:'错误信息：电话号码为空',ret:201});
+    return
   }
   if(password===''){
     res.send({msg:'错误信息：密码为空',ret:201});
+    return
   }
   if(name===''){
     res.send({meg:'错误信息：姓名为空',ret:201});
+    return
   }
   var sql = `SELECT * FROM tbl_user WHERE username = ${telphone}`;
 

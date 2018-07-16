@@ -63,7 +63,7 @@ function filterImg(e) {
       return 'ganzhe'
       break;
     case '水稻':
-      return 'suidao'
+      return 'shuidao'
       break;
     case '柑橘':
       return 'ganju'
