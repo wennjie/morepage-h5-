@@ -4,6 +4,10 @@
 			<img src="../assets/images/yxz.png" class="lable" v-if="show(items.fly_teams)" />
 			<img src="../assets/images/ybm.png" class="lable" v-else/>
 		</div>
+    <div v-if="farmers&&items.fly_teams.length!=0">
+      <img src="../assets/images/itemygb.png" alt="" class="lable" v-if="items.status=='已关闭'">
+			<img src="../assets/images/klx.png" alt="" class="lable" v-else>
+		</div>
 		<div class="logo">
 			<div class="icon-box" :class="filterImg(items.add.corptype)">
 			</div>

@@ -85,6 +85,7 @@ function filterImg(e) {
 
 
 function update(){
+  if (!mui.os.plus) return 
   var wvId =localStorage.getItem('wvId')
   var indexId = localStorage.getItem('indexId')
   mui.fire(plus.webview.getWebviewById(wvId),'update',{})
@@ -96,4 +97,11 @@ function addUpdate(callback){
       callback()
   });
   })
+}
+function restart(){
+  if (!mui.os.plus) {
+    location.href = './index.html';
+    return;
+  }
+  plus.runtime.restart()
 }

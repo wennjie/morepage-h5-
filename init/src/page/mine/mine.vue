@@ -10,9 +10,15 @@
 				<div>{{user.name}}</div>
 			</div>
 			<div>
-				<div class="my-items margin" @click="flyTeamDetails('./flyteamdetails.html')" v-if="!farmers">
+				<div class="my-items margin" @click="flyTeamDetails('./flyteamdetails.html')" v-if="inType!='farmers'">
 					<div class="c">
 						<div>我的飞防队</div>
+						<div style="display: flex;justify-content: flex-end;align-items: center;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;" /></div>
+					</div>
+				</div>
+        <div class="my-items margin" @click="restart">
+					<div class="c">
+						<div>{{inType=='farmers' ? '切换到飞防服务':"切换到农田管理"}}</div>
 						<div style="display: flex;justify-content: flex-end;align-items: center;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;" /></div>
 					</div>
 				</div>
@@ -22,7 +28,7 @@
 						<div style="display: flex;justify-content: flex-end;align-items: center;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;" /></div>
 					</div>
 				</div> -->
-				<!-- <div class="my-items" @click="push('./certification.html',rel)" v-if="!farmers">
+				<!-- <div class="my-items" @click="push('./certification.html',rel)" v-if="inType!='farmers'">
 					<div class="vux-1px-b c">
 						<div>实名认证</div>
 						<div>
@@ -49,36 +55,11 @@ export default {
   },
   data() {
     return {
-      user: {},
+      user:JSON.parse(localStorage.getItem("user")),
       rel: localStorage.getItem("relStatus"),
-      farmers: true
+      inType:localStorage.getItem("inType")
     };
   },
-  // 创建数据之前
-  beforeMount() {},
-  // 创建数据 我们在这里的得到我们在data里面创建的数据,实例已经创建完成之后被调用
-  created() {
-    // 组件创建完后获取数据
-    // this.bindingPhone()
-    const user = JSON.parse(localStorage.getItem("user"));
-    //			console.log(user)
-    this.user = user;
-  },
-  // Dom渲染完成前
-  beforeMount() {},
-  // Dom渲染完成
-  mounted() {
-    if (localStorage.getItem("inType") == "farmers") {
-      this.farmers = true;
-    } else {
-      this.farmers = false;
-    }
-  },
-  // 更新视图 在beforeUpdate触发时，视图已经更新完成
-  beforeUpdate() {},
-  // 更新数据调用的函数、。
-  Updated() {},
-  // methods 将被混入到 Vue 实例中。可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为 Vue 实例。
   methods: {
     flyTeamDetails(e) {
       if (this.rel != 1) {
@@ -91,6 +72,11 @@ export default {
       if (rel == "1") return;
       localStorage.setItem("fly_team_id", this.user.id);
       router(e);
+    },
+    restart(){
+      
+      localStorage.setItem('inType',this.inType == 'farmers' ? 'flyteam' : "farmers" )
+      restart()
     }
   },
   filters: {
@@ -98,16 +84,12 @@ export default {
       switch (e) {
         case "0":
           return "未认证";
-
           break;
-
         case "-1":
           return "认证失败";
-
           break;
         case "1":
           return "已认证";
-
           break;
       }
     }

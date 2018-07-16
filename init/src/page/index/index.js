@@ -8,7 +8,9 @@ import App from './index.vue'
 Vue.config.productionTip = false
 import Resource from 'vue-resource'
 Vue.use(Resource)
-
+import {Switch,Checkbox} from 'element-ui'
+Vue.use(Switch)
+Vue.use(Checkbox)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

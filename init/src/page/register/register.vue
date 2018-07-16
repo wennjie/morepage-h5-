@@ -109,11 +109,6 @@ export default {
           }
         );
     }
-  },
-  watch: {
-    info(e) {
-      console.log(e);
-    }
   }
 };
 </script>
