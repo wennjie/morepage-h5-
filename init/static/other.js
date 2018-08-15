@@ -48,6 +48,7 @@ window.resMsg = function (e) {
 // window.HTTPS = 'https://devel.skylinuav.com/'
 // window.HTTPS = 'http://www.onemoretime.ml:8099/'
 window.HTTPS = 'http://118.24.101.215/'
+// window.HTTPS = 'http://192.168.1.106/'
 
 
 

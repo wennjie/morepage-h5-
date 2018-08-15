@@ -5,7 +5,7 @@
 			<div class="my-head-portrait vux-1px-b">
 				<div class="">
 					<img :src="user.headerImg"   v-if="user.headerImg"/>
-          <img src="../../assets/icon/_default.png" alt="" v-else>
+          <img src="../../assets/icon/_head.png" alt="" v-else>
 				</div>
 				<div>{{user.name}}</div>
 			</div>
@@ -36,12 +36,12 @@
 						</div>
 					</div>
 				</div> -->
-				<div class="my-items" @click="push('./about.html')">
+				<!-- <div class="my-items" @click="push('./about.html')">
 					<div class="c">
 						<div>关于</div>
 						<div style="display: flex;justify-content: flex-end;align-items: center;"><img src="../../../assets/icons/Path 3 Copy 2.png" style="width: 0.08rem;" /></div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -117,7 +117,7 @@ export default {
       width: 0.9rem;
       height: 0.9rem;
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.3);
+      border: none;
       border-radius: 50%;
       img {
         width: 100%;

@@ -86,10 +86,12 @@ export default {
 
 <style lang="less">
 .icon-box {
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.8rem;
+  height: 0.8rem;
   background-position: 50% 50%;
   background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #eaeaea;
   &.dasuan {
     background-image: url("../assets/icon/_dasuan.png");
   }
