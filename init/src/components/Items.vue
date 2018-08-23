@@ -9,12 +9,14 @@
 			<img src="../assets/images/klx.png" alt="" class="lable" v-else>
 		</div>
 		<div class="logo">
-			<div class="icon-box" :class="filterImg(items.add.corptype)">
+      <!-- :class="filterImg(items.add.corptype)" -->
+			<div class="icon-box" >
+        <p>{{items.add.corptype}}</p>
 			</div>
 		</div>
 		<div class="lits">
 			<div class="line">
-				<div>{{items.add.corptype}}</div>
+				<!-- <div>{{items.add.corptype}}</div> -->
 				<div><span>￥{{items.add.price}}元</span>/亩</div>
 			</div>
 			<div class="line">
@@ -92,6 +94,10 @@ export default {
   background-size: cover;
   border-radius: 50%;
   border: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:22px; 
   &.dasuan {
     background-image: url("../assets/icon/_dasuan.png");
   }

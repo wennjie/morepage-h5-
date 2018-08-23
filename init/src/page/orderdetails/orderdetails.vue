@@ -7,11 +7,13 @@
 				<!--关闭控制-->
 				<img src="../../../assets/images/ygb.png" class="lable" v-if="item.status=='已关闭'" />
 				<div class="t vux-1px-b">
-					<div class="t-l icon-box" :class="filterImg(item.add.corptype)">
+          <!-- :class="filterImg(item.add.corptype)" -->
+					<div class="t-l icon-box" >
+            <p>{{item.add.corptype}}</p>
 
 					</div>
 					<div class="t-r">
-						<div><span>{{item.add.corptype}}</span></div>
+						<!-- <div><span></span></div> -->
 						<div><span>￥{{item.add.price}}元/亩</span></div>
 					</div>
 				</div>
@@ -268,10 +270,16 @@ export default {
 
 <style lang='less'>
 .icon-box {
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.8rem;
+  height: 0.8rem;
   background-position: 50% 50%;
   background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:22px; 
   &.dasuan {
     background-image: url("../../assets/icon/_dasuan.png");
   }
